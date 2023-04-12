@@ -1,0 +1,3 @@
+$listsPage = 'https://www.youtube.com/<user>/playlists'
+$playlists = youtube-dl.exe -ij --flat -- $listsPage | ConvertFrom-Json | select id,url,title
+$playlists.url > links.txt # list of URLs
