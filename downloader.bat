@@ -1,1 +1,1 @@
-for /F "tokens=*" %%A in (C:\scripts\links.txt) do ytd %%A
+for /F "tokens=*" %%A in (links.txt) do ytd %%A
