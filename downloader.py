@@ -1,3 +1,4 @@
+#!/home/programmer/.local/share/virtualenvs/scripts-jY1tn_AR/bin/python
 import os
 import yt_dlp
 import sqlite3
@@ -8,7 +9,7 @@ cursor = conn.cursor()
 
 # Set up the yt-dlp options
 ytdl_options = {
-    'ignoreerrors': True,
+    'ignoreerrors': False,
     'format_sort': ['res:1080', 'ext:mp4:m4a'],
 #    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
     #bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
