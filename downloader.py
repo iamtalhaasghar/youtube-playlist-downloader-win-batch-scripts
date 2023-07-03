@@ -2,6 +2,7 @@
 import os
 import yt_dlp
 import sqlite3
+import time
 
 # Set up the SQL database connection
 conn = sqlite3.connect('youtube.db')
@@ -14,6 +15,7 @@ ytdl_options = {
 #    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
     #bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
     'merge_output_format': 'mp4',
+    'download_archive': '/mnt/youtube/.archive.txt',
 }
 
 # Folder path containing the text files
@@ -45,6 +47,9 @@ while True:
             conn.commit()
         except Exception as e:
             print(e)
+            s = 180
+            print(f'waiting for {s}s...')
+            time.sleep(180)
 
 # Close the database connection
 conn.close()
