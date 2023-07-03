@@ -20,6 +20,7 @@ ytdl_options = {
 
 # Folder path containing the text files
 folder_path = os.getcwd()
+wait = 0
 
 while True:
     # Iterate over the playlists from the database and download videos
@@ -45,11 +46,13 @@ while True:
                         WHERE playlist_name = ?
                     ''', ('T', playlist_name))
             conn.commit()
+            wait = 0 # reset wait
         except Exception as e:
             print(e)
-            s = 180
-            print(f'waiting for {s}s...')
-            time.sleep(180)
+            if not ('Private video' in str(e) or 'Video unavailable' in str(e)):
+                wait += 5
+            print(f'waiting for {wait}s...')
+            time.sleep(wait)
 
 # Close the database connection
 conn.close()
