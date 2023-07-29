@@ -1,0 +1,1 @@
+for /F "tokens=*" %%A in (links.txt) do ytd %%A
